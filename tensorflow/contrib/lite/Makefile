@@ -30,7 +30,7 @@ GENDIR := $(MAKEFILE_DIR)/gen/obj/
 CXX := $(CC_PREFIX) gcc
 CXXFLAGS := --std=c++11 -O3 -DNDEBUG
 CC := $(CC_PREFIX) gcc
-CFLAGS :=
+CCFLAGS :=
 LDOPTS :=
 LDOPTS += -L/usr/local/lib
 ARFLAGS := -r
@@ -55,12 +55,16 @@ LIBS := \
 -lm \
 -lz
 
+ifeq ($(TARGET), TIZEN)
+include $(MAKEFILE_DIR)/tizen_makefile.inc
+else
+include $(MAKEFILE_DIR)/ios_makefile.inc
+endif
+
 # If we're on Linux, also link in the dl library.
 ifeq ($(OS),LINUX)
 	LIBS += -ldl -lpthread
 endif
-
-include $(MAKEFILE_DIR)/ios_makefile.inc
 
 # This library is the main target for this makefile. It will contain a minimal
 # runtime that can be linked in to other programs.

@@ -59,12 +59,12 @@ download_and_extract() {
   echo "downloading ${url}" >&2
   mkdir -p "${dir}"
   if [[ "${url}" == *gz ]]; then
-    curl -Ls "${url}" | tar -C "${dir}" --strip-components=1 -xz
+    curl -kLs "${url}" | tar -C "${dir}" --strip-components=1 -xz
   elif [[ "${url}" == *zip ]]; then
     tempdir=$(mktemp -d)
     tempdir2=$(mktemp -d)
 
-    curl -L ${url} > ${tempdir}/zipped.zip
+    curl -kL ${url} > ${tempdir}/zipped.zip
     unzip ${tempdir}/zipped.zip -d ${tempdir2}
 
     # If the zip file contains nested directories, extract the files from the
