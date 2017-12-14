@@ -59,11 +59,11 @@ download_and_extract() {
   echo "downloading ${url}" >&2
   mkdir -p "${dir}"
   if [[ "${url}" == *gz ]]; then
-    curl -Ls "${url}" | tar -C "${dir}" --strip-components=1 -xz
+    curl -kLs "${url}" | tar -C "${dir}" --strip-components=1 -xz
   elif [[ "${url}" == *zip ]]; then
     tempdir=$(mktemp -d)
     tempdir2=$(mktemp -d)
-    wget -P ${tempdir} ${url}
+    wget --no-check-certificate -P ${tempdir} ${url}
     unzip ${tempdir}/* -d ${tempdir2}
     # unzip has no strip components, so unzip to a temp dir, and move the files
     # we want from the tempdir to destination.
