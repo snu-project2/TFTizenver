@@ -1,3 +1,17 @@
+To build tensorflow mobile for Tizen
+1. run ./tensorflow/contrib/makefile/download_dependencies.sh
+2. build with gbs
+
+To build tensorflow lite for Tizen
+1. run ./tensorflow/contrib/lite/download_dependencies.sh
+2. build with gbs. Note that you should specify packaging path
+  e.g. gbs build --include-all --clean -A armv7l --packaging-dir=tensorflow/contrib/lite/packaging/
+
+
+Currently, build output is not packaged as rpm normally. You can find built static libraries in
+./tensorflow/contrib/makefile/gen/lib or ./tensorflow/contrib/lite/gen/lib directory in GBS-ROOT.
+
+
 <div align="center">
   <img src="https://www.tensorflow.org/images/tf_logo_transp.png"><br><br>
 </div>
