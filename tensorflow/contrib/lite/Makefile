@@ -55,15 +55,15 @@ LIBS := \
 -lm \
 -lz
 
+# If we're on Linux, also link in the dl library.
+ifeq ($(OS),LINUX)
+	LIBS += -ldl -lpthread
+endif
+
 ifeq ($(TARGET), TIZEN)
 include $(MAKEFILE_DIR)/tizen_makefile.inc
 else
 include $(MAKEFILE_DIR)/ios_makefile.inc
-endif
-
-# If we're on Linux, also link in the dl library.
-ifeq ($(OS),LINUX)
-	LIBS += -ldl -lpthread
 endif
 
 # This library is the main target for this makefile. It will contain a minimal

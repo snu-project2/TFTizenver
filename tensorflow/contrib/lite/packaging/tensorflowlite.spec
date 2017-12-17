@@ -22,7 +22,7 @@ Tensorflow Lite
 
 %build
 #tensorflow/contrib/lite/download_dependencies.sh
-make -f tensorflow/contrib/lite/Makefile TARGET=TIZEN TIZEN_CXXFLAGS="${CXXFLAGS} -D__ARM_NEON" TIZEN_CFLAGS="${CFLAGS} -D__ARM_NEON"
+make -f tensorflow/contrib/lite/Makefile TARGET=TIZEN OS=LINUX TIZEN_CXXFLAGS="${CXXFLAGS} -D__ARM_NEON" TIZEN_CFLAGS="${CFLAGS} -D__ARM_NEON"
 
 %install
 
