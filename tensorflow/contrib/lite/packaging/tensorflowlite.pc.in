@@ -1,0 +1,6 @@
+Name: tensorflow lite
+Description: tensorflow lite static library
+Version: 0.1
+Requires:
+Libs: -L${libdir} -ltensorflow-lite
+Cflags: -I${includedir}
