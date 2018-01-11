@@ -7,9 +7,10 @@ To build tensorflow lite for Tizen
 2. build with gbs. Note that you should specify packaging path
   e.g. gbs build --include-all --clean -A armv7l --packaging-dir=tensorflow/contrib/lite/packaging/
 
+You can use tensorflow lite by adding build dependency to pkgconfig(tensorflowlite).
 
-Currently, build output is not packaged as rpm normally. You can find built static libraries in
-./tensorflow/contrib/makefile/gen/lib or ./tensorflow/contrib/lite/gen/lib directory in GBS-ROOT.
+Currently, build output for tensorflow mobile is not packaged as rpm normally. You can find built static libraries in
+./tensorflow/contrib/makefile/gen/lib in GBS-ROOT.
 
 
 <div align="center">
