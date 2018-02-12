@@ -51,6 +51,7 @@ install -m 0644 tensorflow/contrib/lite/tools/*.h %{buildroot}%{_includedir}/ten
 install -m 0644 tensorflow/contrib/lite/tensorflow-lite.pc.in %{buildroot}%{_libdir}/pkgconfig/tensorflow-lite.pc
 
 %files
+%license LICENSE
 
 %files -n tensorflow-lite-devel
 %{_libdir}/libtensorflow-lite.a
