@@ -26,7 +26,11 @@ Tensorflow Lite development headers and object file
 #JOB_COUNT=4 TIZEN_FLAGS="${CXXFLAGS}" tensorflow/contrib/makefile/build_all_linux.sh
 
 # build for tensorflow lite
+%ifarch arm armv7l aarch64
 make -f tensorflow/contrib/lite/Makefile TARGET=TIZEN OS=LINUX TIZEN_CXXFLAGS="${CXXFLAGS} -D__ARM_NEON" TIZEN_CFLAGS="${CFLAGS} -D__ARM_NEON"
+%else
+make -f tensorflow/contrib/lite/Makefile TARGET=TIZEN OS=LINUX TIZEN_CXXFLAGS="${CXXFLAGS}" TIZEN_CFLAGS="${CFLAGS}"
+%endif
 
 %install
 
