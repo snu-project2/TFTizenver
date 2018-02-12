@@ -40,6 +40,8 @@ mkdir -p %{buildroot}%{_libdir}/pkgconfig
 mkdir -p %{buildroot}%{_includedir}/tensorflow/contrib/lite
 mkdir -p %{buildroot}%{_includedir}/tensorflow/contrib/lite/kernels
 mkdir -p %{buildroot}%{_includedir}/tensorflow/contrib/lite/tools
+mkdir -p %{buildroot}%{_includedir}/tensorflow/contrib/lite/schema
+mkdir -p %{buildroot}%{_includedir}/flatbuffers
 
 sed -i 's:${libdir}:%{_libdir}:g
 	s:${includedir}:%{_includedir}:g' tensorflow/contrib/lite/tensorflow-lite.pc.in
@@ -48,6 +50,8 @@ install -m 0644 tensorflow/contrib/lite/gen/lib/libtensorflow-lite.a %{buildroot
 install -m 0644 tensorflow/contrib/lite/*.h %{buildroot}%{_includedir}/tensorflow/contrib/lite/
 install -m 0644 tensorflow/contrib/lite/kernels/*.h %{buildroot}%{_includedir}/tensorflow/contrib/lite/kernels
 install -m 0644 tensorflow/contrib/lite/tools/*.h %{buildroot}%{_includedir}/tensorflow/contrib/lite/tools
+install -m 0644 tensorflow/contrib/lite/schema/*.h %{buildroot}%{_includedir}/tensorflow/contrib/lite/schema
+install -m 0644 tensorflow/contrib/lite/downloads/flatbuffers/include/flatbuffers/*.h %{buildroot}%{_includedir}/flatbuffers
 install -m 0644 tensorflow/contrib/lite/tensorflow-lite.pc.in %{buildroot}%{_libdir}/pkgconfig/tensorflow-lite.pc
 
 %files
@@ -57,4 +61,5 @@ install -m 0644 tensorflow/contrib/lite/tensorflow-lite.pc.in %{buildroot}%{_lib
 %{_libdir}/libtensorflow-lite.a
 %{_libdir}/pkgconfig/tensorflow-lite.pc
 %{_includedir}/tensorflow/contrib/lite
+%{_includedir}/flatbuffers
 
