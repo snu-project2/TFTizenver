@@ -1,0 +1,1 @@
+g++ $(pkg-config --cflags --libs opencv --libs tflite) test_v2.cpp -o test_v2 -I ~/TizenNNAPI/TFTizenver/ -std=c++11
